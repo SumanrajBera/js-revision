@@ -111,7 +111,7 @@
 
 50. Write a function named `helloWorld` that prints "Hello World" to the console.
 
-## Conditionals
+## Conditionals (Same as above)
 
 51. Write a function that takes a number as input and returns whether it is "even" or "odd".
 
