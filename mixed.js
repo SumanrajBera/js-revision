@@ -118,19 +118,87 @@ function fibonacci(n) {
         return
     }
     n -= 2
-    // for(let i = 1)
+    let str = "0 1 "
+    for (let i = 0; i < n; i++) {
+        let c = a + b;
+        str += c + " "
+        a = b;
+        b = c
+    }
+    console.log(str)
 }
+fibonacci(n)
 
 // 94. Write a function that divides two numbers. If the second number is zero, throw and catch an error saying "Cannot divide by zero".
+function divide(a, b) {
+    if (b === 0) {
+        console.log("Cannot divide by zero")
+        return
+    } else {
+        let res = a / b
+        console.log("Division result:", res)
+    }
+}
+divide(10, 50)
 
 // 95. Write a function that returns the index of the first vowel in a string. If no vowel exists, return `-1`.
+function firstVowel(str) {
+    str = str.toLowerCase()
+    for (let i = 0; i < str.length; i++) {
+        if (str.charAt(i) === "a" || str.charAt(i) === "e" || str.charAt(i) === "i" || str.charAt(i) === "o" || str.charAt(i) === "a") return i
+    }
+    return -1
+}
+console.log("Vowel index:", firstVowel("bcd"))
 
 // 96. Write a function that removes duplicate values from an array and returns the unique values.
+function remDups(arr) {
+    let set = new Set(arr)
+    let res = Array.from(set)
+    console.log(res)
+}
+remDups([1, 1, 4, 4, 8])
 
 // 97. Write a function that merges two sorted arrays into a single sorted array.
+let arr3 = [1, 2, 4]
+let arr4 = [0, 3, 5]
+let a = arr3.length;
+let b = arr4.length;
+let res = new Array(a + b).fill(0)
+let i = 0, j = 0, k = 0;
+while (i < a && j < b) {
+    if (arr3[i] < arr4[j]) res[k++] = arr3[i++]
+    else res[k++] = arr4[j++]
+}
+
+while (i < a) res[k++] = arr3[i++]
+while (j < b) res[k++] = arr4[j++]
+console.log(res)
+
 
 // 98. Create a function that returns the total number of characters in a string.
 
-// 99. Access a button with the ID `toggleButton` and add a click event listener that toggles the button’s background color between blue and red.
+let strCoutnt = "Helloworlckslf"
+function countChar(str) {
+    let count = 0
+    let i = 0
+    while (i < str.length) {
+        if (str.charAt(i) !== " ") count++
+        i++
+    }
+    console.log(count)
+}
+countChar(strCoutnt)
 
+// 99. Access a button with the ID `toggleButton` and add a click event listener that toggles the button’s background color between blue and red.
+// const btn = document.querySelector(".toggleButton")
+// btn.addEventListener("click", () => {
+//     if (btn.style.backgroundColor === "red") {
+//         btn.style.backgroundColor = "blue"
+//     } else {
+//         btn.style.backgroundColor = "red"
+//     }
+// })
 // 100. Write a function that checks whether all numbers in an array are greater than a given value using the `.every()` method.
+let arr = [50, 20, 30 ,10]
+console.log(arr.every(el => el > 5))
